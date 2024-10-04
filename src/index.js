@@ -8,27 +8,32 @@ import { createTheme, ThemeProvider } from '@mui/material';
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#013e87",
+      main: "#2196F3", // Bright Blue
     },
     secondary: {
-      main: "#2e74c9"
-    }
+      main: "#BBDEFB", // Light Blue
+    },
+    background: {
+      default: "#121212", // Gray background
+      paper: "#1A1A1A", // Slightly lighter black for cards and paper components
+    },
+    text: {
+      primary: "#FFFFFF", // White text
+      secondary: "#BBDEFB", // Light blue text for secondary
+    },
   },
   typography: {
+    fontFamily: 'Roboto, sans-serif', // Set default font family
     h1: {
       fontSize: "6rem",
       fontWeight: 1000,
     },
     h2: {
-      fontSize: "1.75rem",
-      fontWeight: 600,
-    },
-    h3: {
-      fontSize: "1.5rem",
-      fontWeight: 600,
+      fontSize: "2rem",
+      fontWeight: 1000,
     },
   },
-})
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -39,7 +44,5 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// Performance measuring
 reportWebVitals();
