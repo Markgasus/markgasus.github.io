@@ -7,31 +7,16 @@ import { createTheme, ThemeProvider } from '@mui/material';
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: "#2196F3", // Bright Blue
-    },
-    secondary: {
-      main: "#BBDEFB", // Light Blue
-    },
-    background: {
-      default: "#121212", // Gray background
-      paper: "#1A1A1A", // Slightly lighter black for cards and paper components
-    },
-    text: {
-      primary: "#FFFFFF", // White text
-      secondary: "#BBDEFB", // Light blue text for secondary
-    },
+    primary: { main: "#2196F3" },
+    secondary: { main: "#BBDEFB" },
+    background: { default: "#121212", paper: "#1A1A1A" },
+    text: { primary: "#FFFFFF", secondary: "#BBDEFB" },
   },
   typography: {
-    fontFamily: 'Roboto, sans-serif', // Set default font family
-    h1: {
-      fontSize: "6rem",
-      fontWeight: 1000,
-    },
-    h2: {
-      fontSize: "2rem",
-      fontWeight: 1000,
-    },
+    fontFamily: 'Roboto, sans-serif',
+    h1: { fontSize: "7rem", fontWeight: 1000 },
+    h2: { fontSize: "4rem", fontWeight: 1000 },
+    h3: { fontSize: "3rem", fontWeight: 1000 },
   },
 });
 
@@ -44,5 +29,4 @@ root.render(
   </React.StrictMode>
 );
 
-// Performance measuring
 reportWebVitals();
