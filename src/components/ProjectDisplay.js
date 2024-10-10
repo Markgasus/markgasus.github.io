@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Box, Paper, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-function ProjectDisplay({ logo, name, image }) {
+function ProjectDisplay({ logo, name, image, link }) {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   const paperStyles = {
     width: '100%',
@@ -11,9 +13,10 @@ function ProjectDisplay({ logo, name, image }) {
     position: 'relative',
     transition: 'transform 0.3s, box-shadow 0.3s',
     borderRadius: 2,
+    cursor: 'pointer',
     '&:hover': {
       transform: 'scale(1.05)',
-      boxShadow: '0 0 20px rgba(33, 150, 243, 0.8), 0 0 40px rgba(33, 150, 243, 0.6)', // Add glow effect here
+      boxShadow: '0 0 20px rgba(33, 150, 243, 0.8), 0 0 40px rgba(33, 150, 243, 0.6)',
     },
   };
 
@@ -38,64 +41,23 @@ function ProjectDisplay({ logo, name, image }) {
     left: '50%',
     transform: 'translateX(-50%)',
     opacity: isHovered ? 1 : 0,
-    transition: 'opacity 0.5s ease-in-out',
-    zIndex: 3,
-    pointerEvents: isHovered ? 'auto' : 'none',
-  };
-
-  const titleContainerStyles = {
-    position: 'absolute',
-    bottom: '60px',
-    left: '25px',
-    textAlign: 'left',
-    zIndex: 20,
-    opacity: isHovered ? 1 : 0,
-    transition: 'opacity 0.5s ease-in-out',
-  };
-
-  const titleStyles = {
-    color: 'white',
-    fontSize: '1.75rem',
-    fontWeight: 'bold',
+    transition: 'opacity 0.3s',
+    zIndex: 2,
   };
 
   return (
     <Paper
-      elevation={3}
+      elevation={4}
+      sx={paperStyles}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      sx={paperStyles}
+      onClick={() => navigate(link)}
     >
       <Box sx={backgroundStyles} />
-
-      <Box
-        sx={{
-          position: 'relative',
-          zIndex: 2,
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-end',
-          alignItems: 'center',
-          p: 2,
-        }}
-      >
-        {logo && (
-          <Box
-            component="img"
-            src={logo}
-            alt={`${name} logo`}
-            sx={logoStyles}
-          />
-        )}
-
-        <Box sx={titleContainerStyles}>
-          <Typography variant="h4" sx={titleStyles}>
-            {name}
-          </Typography>
-        </Box>
-      </Box>
+      <img src={logo} alt={name} style={logoStyles} />
+      {/* <Typography variant="h5" sx={{ position: 'relative', zIndex: 2, color: 'white', textAlign: 'center', marginTop: '50%' }}>
+        {name}
+      </Typography> */}
     </Paper>
   );
 }
