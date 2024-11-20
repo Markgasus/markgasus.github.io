@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@mui/material';
 
+// Define the theme for your app
 const theme = createTheme({
   palette: {
     primary: { main: "#2196F3" },
@@ -20,6 +21,7 @@ const theme = createTheme({
   },
 });
 
+// Render the app with the theme applied
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -29,4 +31,5 @@ root.render(
   </React.StrictMode>
 );
 
+// Optionally measure performance (you can remove this if you don't need it)
 reportWebVitals();

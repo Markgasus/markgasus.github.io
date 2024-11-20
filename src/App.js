@@ -1,12 +1,11 @@
-// App.js
-import React, { useEffect } from 'react'; // Import useEffect
+import React, { useEffect } from 'react';
 import { Container, Box, Grid, Button, Avatar, IconButton, Divider, Typography } from '@mui/material';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ProjectDisplay from './components/ProjectDisplay';
 import ProjectDetail from './components/ProjectDetail'; // Import the new ProjectDetail component
 import { motion } from 'framer-motion';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Use BrowserRouter for clean URLs
 
 // Animation variant for fade-in effect
 const fadeInUp = {
@@ -17,7 +16,7 @@ const fadeInUp = {
 // Home page component
 const HomePage = () => {
   const handleDownloadCV = () => {
-    window.open('path/to/your_cv.pdf', '_blank');
+    window.open(process.env.PUBLIC_URL + '/Resume_Mark_Francalangia.pdf', '_blank'); // Use PUBLIC_URL for correct file paths
   };
 
   return (
@@ -25,7 +24,16 @@ const HomePage = () => {
       <Container>
         <Grid container spacing={4} alignItems="center">
           {/* Introduction Section */}
-          <Grid item xs={12} sm={6} component={motion.div} initial="hidden" animate="visible" variants={fadeInUp} transition={{ duration: 1 }}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            component={motion.div}
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ duration: 1 }}
+          >
             <Typography variant="h1" sx={{ mb: 2, fontFamily: 'Arial, sans-serif' }}>
               I'm Mark
             </Typography>
@@ -44,21 +52,33 @@ const HomePage = () => {
               <IconButton color="primary" href="https://twitter.com/markgasus" target="_blank" rel="noopener noreferrer">
                 <TwitterIcon />
               </IconButton>
-              <IconButton color="primary" href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+              <IconButton
+                color="primary"
+                href="https://linkedin.com/in/markfrancalangia"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <LinkedInIcon />
               </IconButton>
             </Box>
             {/* Download CV Button */}
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleDownloadCV}
-            >
+            <Button variant="contained" color="primary" onClick={handleDownloadCV}>
               Download CV
             </Button>
           </Grid>
           {/* Avatar Section */}
-          <Grid item xs={12} sm={6} display="flex" justifyContent="center" component={motion.div} initial="hidden" animate="visible" variants={fadeInUp} transition={{ duration: 1.1, delay: 0.1 }}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            display="flex"
+            justifyContent="center"
+            component={motion.div}
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ duration: 1.1, delay: 0.1 }}
+          >
             <Avatar
               alt="Mark Francalangia"
               src="https://media.licdn.com/dms/image/v2/D4E03AQG8nakpLMXjpA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1711062102153?e=1733356800&v=beta&t=Lrd9hb3942eK4ZtFImnWEXy4wvqrfz21VRTH-sfrqHs"
@@ -75,16 +95,44 @@ const HomePage = () => {
         <Typography
           variant="h2"
           sx={{ fontFamily: 'Arial, sans-serif', textAlign: 'center', mb: 12 }}
-          component={motion.div} initial="hidden" animate="visible" variants={fadeInUp} transition={{ duration: 1.2, delay: 0.2 }}
+          component={motion.div}
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          transition={{ duration: 1.2, delay: 0.2 }}
         >
           Projects
         </Typography>
         <Grid container spacing={4} justifyContent="center">
-          {[ 
-            { logo: "./assets/TTR.png", image: "./assets/TTR_Key_Art.png", name: "Toontown Rewritten", link: "/project/TTR" },
-            { logo: "./assets/toon_tag_logo.png", image: "./assets/toon_tag_diz.png", name: "Toon Tag Remake", link: "/project/toontag" },
+          {[
+            {
+              logo: process.env.PUBLIC_URL + '/assets/TTR.png',
+              image: process.env.PUBLIC_URL + '/assets/TTR_Key_Art.png',
+              name: 'Toontown Rewritten',
+              link: '/TTR',
+            },
+            {
+              logo: process.env.PUBLIC_URL + '/assets/Toon_Tag_Logo.png',
+              image: process.env.PUBLIC_URL + '/assets/Toon_Tag_DIZ.png',
+              name: 'Toon Tag Remake',
+              link: '/toontag',
+            },
           ].map((project, index) => (
-            <Grid item xs={12} sm={6} md={4} display="flex" justifyContent="center" sx={{ pb: { xs: 15, sm: 0 } }} component={motion.div} initial="hidden" animate="visible" variants={fadeInUp} transition={{ duration: 1.3 + index * 0.1, delay: 0.3 + index * 0.1 }} key={index}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              display="flex"
+              justifyContent="center"
+              sx={{ pb: { xs: 15, sm: 0 } }}
+              component={motion.div}
+              initial="hidden"
+              animate="visible"
+              variants={fadeInUp}
+              transition={{ duration: 1.3 + index * 0.1, delay: 0.3 + index * 0.1 }}
+              key={index}
+            >
               <ProjectDisplay {...project} />
             </Grid>
           ))}
@@ -92,7 +140,7 @@ const HomePage = () => {
       </Container>
     </Box>
   );
-}
+};
 
 // Main App component with routing
 function App() {
@@ -101,10 +149,10 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/project/:projectId" element={<ProjectDetail />} />
+        <Route path="/:projectId" element={<ProjectDetail />} />
       </Routes>
     </Router>
   );
