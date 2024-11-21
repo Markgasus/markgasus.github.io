@@ -21,6 +21,24 @@ const HomePage = () => {
 
   return (
     <Box sx={{ minHeight: '100vh', py: 10, backgroundColor: 'background.default', color: 'text.primary' }}>
+      {/* Under Construction Banner */}
+      <Box
+        sx={{
+          backgroundColor: 'warning.main', 
+          color: 'white', 
+          padding: 1, 
+          textAlign: 'center', 
+          fontWeight: 'bold',
+          fontSize: '1.2rem',
+          position: 'absolute', 
+          width: '100%', 
+          top: 0, 
+          zIndex: 9999
+        }}
+      >
+        This site is currently under construction.
+      </Box>
+      
       <Container>
         <Grid container spacing={4} alignItems="center">
           {/* Introduction Section */}
