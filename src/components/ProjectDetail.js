@@ -88,7 +88,7 @@ const ProjectDetail = () => {
 
         {/* Back to Home Button */}
         <Box sx={{ mt: 4, textAlign: 'center' }}>
-          <Button variant="contained" onClick={() => navigate('/')}>
+          <Button variant="contained" onClick={() => navigate('/')}> {/* Adapted for HashRouter */}
             Back to Home
           </Button>
         </Box>

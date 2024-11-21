@@ -5,7 +5,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ProjectDisplay from './components/ProjectDisplay';
 import ProjectDetail from './components/ProjectDetail'; // Import the new ProjectDetail component
 import { motion } from 'framer-motion';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Use BrowserRouter for clean URLs
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // Use HashRouter for hash-based URLs
 
 // Animation variant for fade-in effect
 const fadeInUp = {
@@ -149,7 +149,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/:projectId" element={<ProjectDetail />} />
