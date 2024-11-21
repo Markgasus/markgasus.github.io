@@ -16,7 +16,7 @@ const fadeInUp = {
 // Home page component
 const HomePage = () => {
   const handleDownloadCV = () => {
-    window.open(process.env.PUBLIC_URL + '/Resume_Mark_Francalangia.pdf', '_blank'); // Use PUBLIC_URL for correct file paths
+    window.open(process.env.PUBLIC_URL + '/assets/Resume_Mark_Francalangia.pdf', '_blank');
   };
 
   return (
