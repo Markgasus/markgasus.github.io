@@ -21,7 +21,7 @@ const HomePage = () => {
 
   return (
     <Box sx={{ minHeight: '100vh', py: 10, backgroundColor: 'background.default', color: 'text.primary' }}>
-      {/* Under Construction Banner */}
+      {/* Under Construction Banner
       <Box
         sx={{
           backgroundColor: 'warning.main', 
@@ -37,8 +37,8 @@ const HomePage = () => {
         }}
       >
         This site is currently under construction.
-      </Box>
-      
+      </Box> */}
+
       <Container>
         <Grid container spacing={4} alignItems="center">
           {/* Introduction Section */}
@@ -56,14 +56,14 @@ const HomePage = () => {
               I'm Mark
             </Typography>
             <Typography variant="h3" sx={{ mb: 4, color: 'primary.main', fontFamily: 'Arial, sans-serif' }}>
-              Game Developer & Designer
+              Software Engineer & Game Developer
             </Typography>
             <Typography sx={{ mb: 4 }}>
-              I am a passionate game developer and designer with experience in creating engaging
-              and interactive experiences. I love building immersive worlds and gameplay systems that
-              captivate players. My skills include working with Unity, Unreal Engine, and a variety of
-              programming languages. I'm always eager to learn and take on new challenges in the gaming
-              industry.
+              I am passionate for crafting innovative solutions, creating interactive experiences, and bridging the gap between technology and user engagement.
+              With experience spanning software engineering, game development, and system design, I bring technical expertise 
+              and creativity to every project. I have built immersive worlds using Unity and Unreal Engine while also developing 
+              robust backend systems, scalable applications, and engaging user interfaces. Whether it's general-purpose software or crafting games 
+              I am always eager to learn and tackle new challenges.
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>
               {/* Social Media Links */}
@@ -99,7 +99,7 @@ const HomePage = () => {
           >
             <Avatar
               alt="Mark Francalangia"
-              src="https://media.licdn.com/dms/image/v2/D4E03AQG8nakpLMXjpA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1711062102153?e=1733356800&v=beta&t=Lrd9hb3942eK4ZtFImnWEXy4wvqrfz21VRTH-sfrqHs"
+              src={`${process.env.PUBLIC_URL}/assets/Mark.jpg`}
               sx={{ width: '100%', height: 'auto', maxWidth: 400 }}
             />
           </Grid>

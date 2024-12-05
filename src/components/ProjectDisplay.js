@@ -1,10 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Paper, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 function ProjectDisplay({ logo, name, image, link }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile(); // Initial check
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const paperStyles = {
     width: '100%',
@@ -40,7 +53,7 @@ function ProjectDisplay({ logo, name, image, link }) {
     top: -50,
     left: '50%',
     transform: 'translateX(-50%)',
-    opacity: isHovered ? 1 : 0,
+    opacity: isMobile ? 1 : (isHovered ? 1 : 0),
     transition: 'opacity 0.3s',
     zIndex: 2,
   };
@@ -49,15 +62,12 @@ function ProjectDisplay({ logo, name, image, link }) {
     <Paper
       elevation={4}
       sx={paperStyles}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => !isMobile && setIsHovered(true)}
+      onMouseLeave={() => !isMobile && setIsHovered(false)}
       onClick={() => navigate(link)}
     >
       <Box sx={backgroundStyles} />
       <img src={logo} alt={name} style={logoStyles} />
-      {/* <Typography variant="h5" sx={{ position: 'relative', zIndex: 2, color: 'white', textAlign: 'center', marginTop: '50%' }}>
-        {name}
-      </Typography> */}
     </Paper>
   );
 }
