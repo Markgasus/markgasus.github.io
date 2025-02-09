@@ -30,7 +30,7 @@ const ProjectDetail = () => {
       description: "A faithful recreation of the classic Toontown minigame that captures the nostalgic atmosphere of Epcot from the late 90s and early 2000s. Utilizing Unreal Engine's Blueprint system, the game features enhanced network replication and smooth gameplay mechanics. The project involved carefully porting and optimizing 3D assets from the original Panda3D engine to Unreal Engine through Autodesk Maya, ensuring an authentic yet modernized experience.",
       skills: [
         { name: "Unreal Engine", image: process.env.PUBLIC_URL + "/assets/UnrealEngine.png" },
-        { name: "C#", image: process.env.PUBLIC_URL + "/assets/Csharp.png" },
+        { name: "C#", image: process.env.PUBLIC_URL + "/assets/C++.png" },
       ],
     },
   };
