@@ -130,8 +130,8 @@ const HomePage = () => {
               link: '/TTR',
             },
             {
-              logo: process.env.PUBLIC_URL + '/assets/Toon_Tag_Logo.png',
-              image: process.env.PUBLIC_URL + '/assets/Toon_Tag_DIZ.png',
+              logo: process.env.PUBLIC_URL + '/assets/Toon_Tag.png',
+              image: process.env.PUBLIC_URL + '/assets/Toon_Tag_Key_Art.png',
               name: 'Toon Tag Remake',
               link: '/toontag',
             },
